@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Citing Code</title>
+<style>
+    body {
+
+        font-family: Arial, sans-serif;
+        color: rgb(255, 255, 255);
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        background-color: #1d1d1d;
+
+    }
+
+    header,
+    footer {
+        background-color: #000000;
+        color: white;
+        padding: 1px 0;
+    }
+
+    main {
+        padding: 20px;
+    }
+</style>
+</head>
+
+<body>
+    <header>
+        <h1>Citing Code</h1>
+    </header>
+    <main>
+        <p>Welcome to my Citing Code Assignment! I will be experimenting with different tutorials from W3Schools and
+            p5.js! Hope you like it!</p>
+    </main>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h2> Tutorial 1: Image Overlay Fade - w3Schools</h2>
+
+    <style>
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            flex-wrap: wrap;
+            margin: 100px;
+        }
+
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 25%;
+            margin: 0 auto;
+        }
+
+        .image {
+            opacity: 1;
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: .5s ease;
+            backface-visibility: hidden;
+            border: 3px solid white;
+        }
+
+        .middle {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .container:hover .image {
+            opacity: 0.2;
+        }
+
+        .container:hover .middle {
+            opacity: 1;
+        }
+
+        .text {
+            background-color: #000000;
+            color: white;
+            font-size: 16px;
+            padding: 16px 32px;
+        }
+    </style>
+    </head>
+
+    <body>
+
+        <p>Opacity with Box - Hover over the box for a cool surprise</p>
+
+        <div class="image-container">
+
+            <div class="container">
+                <img src="mfcat.jpg" alt="Avatar" class="image">
+                <div class="middle">
+                    <div class="text">MF Doom Cat</div>
+                </div>
+            </div>
+
+
+            <div class="container">
+                <img src="harrypotter.jpg" alt="Avatar" class="image">
+                <div class="middle">
+                    <div class="text">Harry Aint a Broke Boy</div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <h2> Tutorial 2: Orbit Control - p5.js</h2>
+
+        </style>
+    </body>
+
+    <script src="sketch.js"></script>
+    <script src="p5.min.js"></script>
+
+</html>
