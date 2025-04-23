@@ -7,7 +7,7 @@ function setup() {
 }
 
 function draw() {
-  background(250, 180, 200);
+  background(41, 166, 151);
 
   orbitControl();
 
@@ -36,4 +36,17 @@ function drawCubeSphere(xOffset, yOffset, zOffset) {
   }
 
   pop();
+}
+
+
+let canvas;
+
+function setup() {
+  canvas = createCanvas(710, 400, WEBGL); 
+  canvas.parent('canvas-container');      
+
+  angleMode(DEGREES);
+  strokeWeight(5);
+  noFill();
+  stroke(32, 8, 64);
 }
