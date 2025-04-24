@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Text Adventure</title>
+    <script src="p5.min.js"></script>
+    <script src="p5.dom.min.js"></script>
+    <script src="sketch.js" defer></script>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background: #f0f0f0;
+      }
+
+      canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 36px;
+        color: #222;
+      }
+
+      #controls {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        z-index: 10;
+      }
+
+      .input-row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      input[type="text"] {
+        font-size: 20px;
+        padding: 10px;
+        width: 300px;
+      }
+
+      input[type="range"], input[type="color"] {
+        width: 200px;
+        height: 30px;
+      }
+
+      button {
+        font-size: 16px;
+        padding: 10px 20px;
+        margin: 2px;
+        border: none;
+        border-radius: 5px;
+        background: #333;
+        color: white;
+        cursor: pointer;
+      }
+
+      .button-row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Text Adventure</h1>
+    <div id="controls">
+      <input id="textInput" type="text" placeholder="Enter text to animate" />
+      <button id="submitButton">Animate</button>
+      <div class="input-row">
+        <div>
+          <label for="speedSlider">Speed:</label><br />
+          <input type="range" id="speedSlider" min="0.5" max="5" step="0.1" value="1" />
+        </div>
+        <div>
+          <label for="colorPicker">Text Color:</label><br />
+          <input type="color" id="colorPicker" value="#000000" />
+        </div>
+        <div>
+          <label for="sizeSlider">Text Size:</label><br />
+          <input type="range" id="sizeSlider" min="16" max="128" step="1" value="48" />
+        </div>
+      </div>
+      <div class="button-row">
+        <button id="waveButton">Wave</button>
+        <button id="fillScreenButton">Fill Screen</button>
+        <button id="bounceButton">Bounce</button>
+        <button id="clearButton">Clear Animation</button>
+        <button id="fullscreenButton">Toggle Fullscreen</button>
+      </div>
+    </div>
+  </body>
+</html>
