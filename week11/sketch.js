@@ -30,7 +30,7 @@ function setup(){
 }
 
 function draw(){
-    background('pink');
+    background('lightblue');
     // image(kittyimg, 0,0, 100, 100);
     // image(kittyimg2, 100,100, 100, 100);
     text(allthekitties.length, 10,10);
