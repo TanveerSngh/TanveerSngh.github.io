@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Most Annoying Website Ever</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .calculator {
+            display: inline-block;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            z-index: 0;  
+            position: absolute;
+            margin-top: 100px;
+            transition: all 0.5s ease;  
+        }
+
+        .display {
+            width: 200px;
+            height: 50px;
+            text-align: right;
+            font-size: 24px;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            padding: 20px;
+            font-size: 18px;
+            border: none;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ddd;
+        }
+
+        .gifContainer {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+            z-index: 10;  
+        }
+
+        .gifContainer img {
+            width: 300%;
+            height: 300%;
+        }
+
+        .videoContainer {
+            position: fixed;
+            top: 20%;
+            left: 0;
+            width: 1000px;  
+            height: 800px; 
+            z-index: 9;  
+            display: none;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+</head>
+<h1>The Worlds Most Stupid Calculator</h1>
+
+<body>
+
+    <div class="calculator">
+        <input type="text" class="display" id="display" disabled>
+        <div class="buttons">
+            <button onclick="addToDisplay('1')">1</button>
+            <button onclick="addToDisplay('2')">2</button>
+            <button onclick="addToDisplay('3')">3</button>
+            <button onclick="addToDisplay('+')">+</button>
+            <button onclick="addToDisplay('4')">4</button>
+            <button onclick="addToDisplay('5')">5</button>
+            <button onclick="addToDisplay('6')">6</button>
+            <button onclick="addToDisplay('-')">-</button>
+            <button onclick="addToDisplay('7')">7</button>
+            <button onclick="addToDisplay('8')">8</button>
+            <button onclick="addToDisplay('9')">9</button>
+            <button onclick="addToDisplay('*')">*</button>
+            <button onclick="addToDisplay('0')">0</button>
+            <button onclick="addToDisplay('.')">.</button>
+            <button onclick="addToDisplay('/')">/</button>
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="brokenCalculate()">=</button>
+        </div>
+    </div>
+
+    <div class="gifContainer" id="gif1">
+        <img src="hedgehog.gif" alt="Jumping GIF">
+    </div>
+
+    <div class="gifContainer" id="gif2">
+        <img src="kermit1.gif" alt="Jumping GIF">
+    </div>
+
+    <div class="videoContainer" id="videoContainer1">
+        <video autoplay muted loop>
+            <source src="subway_video.mp4" type="video/mp4"> 
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div class="videoContainer" id="videoContainer2">
+        <video autoplay muted loop>
+            <source src="bobross.mp4" type="video/mp4"> 
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <script src="sketch.js"></script>
+
+    <script>
+        let display = document.getElementById('display');
+
+        function addToDisplay(value) {
+            display.value += value;
+        }
+
+        function clearDisplay() {
+            display.value = '';
+        }
+
+        function brokenCalculate() {
+            let wrongAnswer = Math.floor(Math.random() * 1000); 
+            display.value = wrongAnswer;
+        }
+
+        function calculate() {
+            try {
+                let result = eval(display.value); 
+                display.value = result;
+            } catch (e) {
+                display.value = "Error"; 
+            }
+        }
+
+
+        function moveGif(gifContainer) {
+            let maxX = window.innerWidth - gifContainer.offsetWidth;
+            let maxY = window.innerHeight - gifContainer.offsetHeight;
+            let randomX = Math.floor(Math.random() * maxX);
+            let randomY = Math.floor(Math.random() * maxY);
+
+            gifContainer.style.left = randomX + 'px';
+            gifContainer.style.top = randomY + 'px';
+        }
+
+
+        setInterval(function() {
+            moveGif(document.getElementById('gif1'));
+        }, Math.random() * (5000 - 3000) + 3000);  
+
+
+        setInterval(function() {
+            moveGif(document.getElementById('gif2'));
+        }, Math.random() * (6000 - 4000) + 4000);  
+
+        function changeCalculatorSize() {
+            let calculator = document.querySelector('.calculator');
+            
+            let randomWidth = Math.floor(Math.random() * (600 - 200 + 1)) + 200;  
+            let randomHeight = Math.floor(Math.random() * (400 - 150 + 1)) + 150;  
+            
+            calculator.style.width = randomWidth + 'px';
+            calculator.style.height = randomHeight + 'px';
+        }
+
+
+        setInterval(changeCalculatorSize, 5000);  
+
+
+        function toggleVideoVisibility(videoId) {
+            let videoContainer = document.getElementById(videoId);
+            let randomShowTime = Math.random() * 5000 + 2000;  
+            let randomHideTime = Math.random() * 5000 + 2000; 
+
+            setTimeout(function() {
+                videoContainer.style.display = 'block';
+                videoContainer.style.transition = 'all 0.5s';  
+                let randomX = Math.random() * (window.innerWidth - videoContainer.offsetWidth);
+                let randomY = Math.random() * (window.innerHeight - videoContainer.offsetHeight);
+                
+                videoContainer.style.left = randomX + 'px';
+                videoContainer.style.top = randomY + 'px';
+
+                let videoElement = videoContainer.querySelector('video');
+                videoElement.play();
+
+                setTimeout(function() {
+                    videoContainer.style.display = 'none'; 
+                }, randomHideTime);
+            }, randomShowTime); 
+        }
+
+        setInterval(function() {
+            toggleVideoVisibility('videoContainer1');
+            toggleVideoVisibility('videoContainer2');
+        }, 15000);  
+    </script>
+
+</body>
+</html>

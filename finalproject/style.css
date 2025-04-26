@@ -1,0 +1,11 @@
+#gifContainer {
+    position: absolute;
+    width: 200px; /* Increase width */
+    height: 200px; /* Increase height */
+    cursor: pointer;
+    z-index: 5;
+}
+#gifContainer img {
+    width: 100%;
+    height: 100%;
+}
